@@ -26,7 +26,7 @@ protected:
 public:
   TVector(int s = 10, int si = 0);
   TVector(const TVector &v);                // конструктор копирования
-  ~TVector();
+  ~TVector();                               // деструктор
   int GetSize()      { return Size;       } // размер вектора
   int GetStartIndex(){ return StartIndex; } // индекс первого элемента
   ValType& operator[](int pos);             // доступ
@@ -62,6 +62,10 @@ public:
 template <class ValType>
 TVector<ValType>::TVector(int s, int si)
 {
+	pVector = new ValType[Size];
+	Size = s;
+	StartIndex = si;
+
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> //конструктор копирования
