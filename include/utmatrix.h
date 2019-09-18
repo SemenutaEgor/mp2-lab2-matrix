@@ -133,7 +133,10 @@ TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 template <class ValType> // сложение
 TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 {
-	return *this;
+	TVector d(Size);
+	for (int i = 0; i < Size; i++)
+		d.pVector[i] = pVector[i] + v.pVector[i];
+	return d;
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // вычитание
