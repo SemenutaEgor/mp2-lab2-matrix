@@ -85,8 +85,7 @@ TVector<ValType>::~TVector()
 template <class ValType> // доступ
 ValType& TVector<ValType>::operator[](int pos)
 {
-	TVector<ValType> v;
-	return v[0];
+	return pVector[pos];
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // сравнение
