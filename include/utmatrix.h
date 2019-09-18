@@ -127,7 +127,10 @@ TVector<ValType> TVector<ValType>::operator-(const ValType &val)
 template <class ValType> // умножить на скаляр
 TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 {
-	return *this;
+	TVector d(Size);
+	for (int i = 0; i < Size; i++)
+		d.pVector[i] = pVector[i] * val;
+	return d;
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // сложение
