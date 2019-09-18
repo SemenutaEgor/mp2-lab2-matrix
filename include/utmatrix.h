@@ -124,7 +124,7 @@ TVector<ValType> TVector<ValType>::operator-(const ValType &val)
 	return *this;
 } /*-------------------------------------------------------------------------*/
 
-template <class ValType> // умножить на скаляр
+template <class ValType> // умножить вектор на скаляр
 TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 {
 	TVector d(Size);
