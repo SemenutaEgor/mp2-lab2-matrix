@@ -77,6 +77,8 @@ TVector<ValType>::~TVector()
 template <class ValType> // доступ
 ValType& TVector<ValType>::operator[](int pos)
 {
+	if (pos < 0) throw (-1);
+	if (pos > this->GetSize()) throw (-1);
 	return pVector[pos - StartIndex];
 } /*-------------------------------------------------------------------------*/
 
