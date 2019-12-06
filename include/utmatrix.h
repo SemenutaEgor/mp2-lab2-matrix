@@ -53,6 +53,8 @@ public:
 template <class ValType> //Конструктор 
 TVector<ValType>::TVector(int s, int si)
 {
+	if (s > MAX_VECTOR_SIZE) throw (-1);
+	if (si < 0) throw (-1);
 	pVector = new ValType[s];
 	Size = s;
 	StartIndex = si;

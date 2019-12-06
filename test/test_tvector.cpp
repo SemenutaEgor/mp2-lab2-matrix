@@ -31,7 +31,13 @@ TEST(TVector, can_create_copied_vector)
 
 TEST(TVector, copied_vector_is_equal_to_source_one)
 {
-  ADD_FAILURE();
+	TVector<int> v1(10);
+	TVector<int> v2(10);
+	int S = v1.GetSize();
+	for (int i = 0; i < S; i++)
+		v1[i] = i;
+	v2 = v1;
+	EXPECT_EQ(v1, v2);
 }
 
 TEST(TVector, copied_vector_has_its_own_memory)
