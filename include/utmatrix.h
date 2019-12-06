@@ -83,13 +83,26 @@ ValType& TVector<ValType>::operator[](int pos)
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // сравнение
-bool TVector<ValType>::operator==(const TVector &v) const
+bool TVector<ValType>::operator==(const TVector<ValType> &v) const
 {
-	return true;
+	if (Size != v.Size) return false;
+	int f = 0;
+	for (int i = 0; i < Size; i++)
+		if ( pVector[i] != v.pVector[i])
+			f++;
+	if (f == 0)
+		return true;
+	else
+		return false;
+
 } /*-------------------------------------------------------------------------*/
 template <class ValType> // сравнение
 bool TVector<ValType>::operator!=(const TVector &v) const
 {
+	if (this == v)
+		return false;
+	else
+		return true;
 } /*-------------------------------------------------------------------------*/
 template <class ValType> // присваивание
 TVector<ValType>& TVector<ValType>::operator=(const TVector &v)

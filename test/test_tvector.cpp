@@ -100,27 +100,41 @@ TEST(TVector, can_assign_vectors_of_equal_size)
 
 TEST(TVector, assign_operator_change_vector_size)
 {
-  ADD_FAILURE();
+	TVector<int> v1(3);
+	TVector<int> v2(5);
+	for (int i = 0; i < v1.GetSize(); i++)
+		v1[i] = i;
+	v2 = v1;
+	EXPECT_NE(v2.GetSize(), 5);
 }
 
 TEST(TVector, can_assign_vectors_of_different_size)
 {
-  ADD_FAILURE();
+	TVector<int> v1(3);
+	TVector<int> v2(5);
+	for (int i = 0; i < v1.GetSize(); i++)
+		v1[i] = i;
+	ASSERT_NO_THROW(v1 = v2);
 }
 
 TEST(TVector, compare_equal_vectors_return_true)
 {
-  ADD_FAILURE();
+	TVector<int> v1(3);
+	TVector<int> v2(v1);
+	EXPECT_EQ((v1 == v2), true);
 }
 
 TEST(TVector, compare_vector_with_itself_return_true)
 {
-  ADD_FAILURE();
+	TVector<int> v1(3);
+	EXPECT_EQ((v1 == v1), true);
 }
 
 TEST(TVector, vectors_with_different_size_are_not_equal)
 {
-  ADD_FAILURE();
+	TVector<int> v1(3);
+	TVector<int> v2(5);
+	EXPECT_EQ((v1 == v2), false);
 }
 
 TEST(TVector, can_add_scalar_to_vector)
