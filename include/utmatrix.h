@@ -124,18 +124,31 @@ TVector<ValType>& TVector<ValType>::operator=(const TVector &v)
 template <class ValType> // прибавить скаляр
 TVector<ValType> TVector<ValType>::operator+(const ValType &val)
 {
+	TVector<ValType> tmp(Size);
+	for (int i = 0; i < Size; i++)
+		tmp[i] = pVector[i] + val;
+	return tmp;
 } /*-------------------------------------------------------------------------*/
 template <class ValType> // вычесть скаляр
 TVector<ValType> TVector<ValType>::operator-(const ValType &val)
 {
+	TVector<ValType> tmp(Size);
+	for (int i = 0; i < Size; i++)
+		tmp[i] = pVector[i] - val;
+	return tmp;
 } /*-------------------------------------------------------------------------*/
 template <class ValType> // умножить на скаляр
 TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 {
+	TVector<ValType> tmp(Size);
+	for (int i = 0; i < Size; i++)
+		tmp[i] = pVector[i]*val;
+	return tmp;
 } /*-------------------------------------------------------------------------*/
 template <class ValType> // сложение
 TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 {
+	if (Size != v.Size) throw (-1);
 	TVector temp(Size, StartIndex);                                   
 	for (int i = 0; i < Size; i++)
 		temp.pVector[i] = pVector[i] + v.pVector[i];
@@ -144,10 +157,20 @@ TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 template <class ValType> // вычитание
 TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
 {
+	if (Size != v.Size) throw (-1);
+	TVector temp(Size, StartIndex);
+	for (int i = 0; i < Size; i++)
+		temp.pVector[i] = pVector[i] - v.pVector[i];
+	return temp;
 } /*-------------------------------------------------------------------------*/
 template <class ValType> // скалярное произведение
 ValType TVector<ValType>::operator*(const TVector<ValType> &v)
 {
+	if (Size != v.Size) throw (-1);
+	ValType sp = 0;
+	for (int i = 0; i < Size; i++)
+		sp += pVector[i] * v.pVector[i];
+	return sp;
 } /*-------------------------------------------------------------------------*/
 // Верхнетреугольная матрица
 template <class ValType>
