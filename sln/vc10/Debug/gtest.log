@@ -1,0 +1,2 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (sample_utmatrix.vcxproj, test_utmatrix.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  gtest.vcxproj -> D:\Входящие\УЧЕНИЕ\АИСД\Лабы 3 семестр\Matrix\mp2-lab2-matrix\sln\vc10\Debug\gtest.lib
